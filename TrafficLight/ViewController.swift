@@ -8,42 +8,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var RedView: UIView!
-    @IBOutlet weak var YellowView: UIView!
-    @IBOutlet weak var GreenView: UIView!
-    @IBOutlet weak var StartButton: UIButton!
+    
+    @IBOutlet weak var redView: UIView!
+    @IBOutlet weak var yellowView: UIView!
+    @IBOutlet weak var greenView: UIView!
+    @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        RedView.layer.cornerRadius = 63
-        YellowView.layer.cornerRadius = 63
-        GreenView.layer.cornerRadius = 63
-        StartButton.layer.cornerRadius = 15
-        
+        //super.viewDidLoad()
+        redView.layer.cornerRadius = redView.frame.width / 1.7
+        yellowView.layer.cornerRadius = yellowView.frame.width / 1.7
+        greenView.layer.cornerRadius = greenView.frame.width / 1.7
+        startButton.layer.cornerRadius = 15
     }
     
-    var buttonClick = 0
+    private var buttonClick = 0
     
     @IBAction func StartButtonPressed() {
         buttonClick += 1
         if buttonClick == 1{
-            RedView.alpha = 1
-            GreenView.alpha = 0.3
+            redView.alpha = 1
+            greenView.alpha = 0.3
         } else if buttonClick == 2 {
-            RedView.alpha = 0.3
-            YellowView.alpha = 1
+            redView.alpha = 0.3
+            yellowView.alpha = 1
         } else if buttonClick == 3 {
-            GreenView.alpha = 1
-            YellowView.alpha = 0.3
+            greenView.alpha = 1
+            yellowView.alpha = 0.3
             buttonClick = 0
         }
         
-        StartButton.setTitle("Next", for: .normal)
-        
-        
+        startButton.setTitle("Next", for: .normal)
     }
-    
 }
+
 
 
